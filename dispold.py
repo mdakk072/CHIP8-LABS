@@ -1,0 +1,90 @@
+import random
+import pygame
+
+from Keypad import Keypad
+
+class Display:
+    def __init__(self, scale=5):
+        # Initialisation de la classe Display
+        self.scale = scale
+        pygame.init() # Initialisation de Pygame
+        pygame.display.set_caption("Emulateur Chip-8")
+        self.screen = pygame.display.set_mode((64 * scale, 32 * scale),)
+        #self.screen = pygame.display.set_mode((128 * scale, 64 * scale),)
+
+        self.pixels = [[0 for _ in range(64)] for _ in range(32)] # Déclaration de la variable pixels
+        self.draw()
+
+    def clear(self):
+        # Efface l'écran en mettant tous les pixels à 0
+        self.pixels = [[0 for _ in range(64)] for _ in range(32)]
+        self.draw()
+
+    def draw(self):
+        # Dessine l'écran en parcourant tous les pixels et en dessinant un rectangle blanc ou noir en fonction de leur valeur
+        for y in range(32):
+            for x in range(64):
+                if self.pixels[y][x]:
+                    color = (255, 255, 255)
+                else:
+                    color = (0, 0, 0)
+                rect = pygame.Rect(x * self.scale, y * self.scale, self.scale, self.scale)
+                pygame.draw.rect(self.screen, color, rect)
+    def refresh(self):
+            self.draw()
+            pygame.display.flip() # Met à jour l'écran
+            #pygame.time.wait(1000 // 60) # Attend 1/60ème de seconde (environ 16 ms) pour simuler un taux de rafraîchissement de 60 Hz
+            pygame.time.wait(1000 // 120) # Attend 1/60ème de seconde (environ 16 ms) pour simuler un taux de rafraîchissement de 60 Hz
+    def set_pixel(self, x, y,sp=None):
+        if sp !=None:
+            self.pixels[y][x] =sp
+        # Change la valeur du pixel à la position donnée (0 ou 1)
+        else:
+            self.pixels[y][x] ^= 1
+    def get_pixel(self,x,y):
+        return self.pixels[y][x]
+    def test(self):
+        # Teste l'affichage en dessinant des motifs aléatoires jusqu'à ce que l'utilisateur appuie sur une touche pour quitter
+        self.clear()
+        self.draw()
+        pygame.display.flip() # Met à jour l'écran
+        pygame.time.wait(1000)
+        wait = True
+        
+        while wait:
+            #key.listenKey()
+            #print(key.keystate,end='\r')
+            # Dessine une forme aléatoire
+            self.clear()
+            for i in range(random.randint(1, 10)):
+                x = random.randint(0, 63)
+                y = random.randint(0, 31)
+                self.set_pixel(x, y)
+            self.draw()
+            pygame.display.flip() # Met à jour l'écran
+            pygame.time.wait(1000 // 10) # Attend 1/60ème de seconde (environ 16 ms) pour simuler un taux de rafraîchissement de 60 Hz
+
+            # Vérifie si l'utilisateur a appuyé sur une touche pour quitter
+            '''
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    wait = False
+                elif event.type == pygame.KEYDOWN:
+                    wait = False
+            '''
+
+        # Ferme la fenêtre Pygame
+        pygame.quit()
+    
+    def close(self):
+        # Ferme la fenêtre Pygame
+        pygame.quit()
+'''
+
+
+display = Display()
+key=Keypad(display.screen)
+display.test()
+display.close()
+'''

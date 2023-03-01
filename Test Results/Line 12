@@ -1,0 +1,14 @@
+// Cluster 12
+digraph {
+	graph [rankdir=LR]
+	node [fontname=arial shape=plaintext]
+	11 [label="print(myString)"]
+	"11_PRINT" [label=print color=white fillcolor=lightgray fontname=arial style=filled]
+	11 -> "11_PRINT" [label=PRINT]
+	"11_LPAREN" [label="(" color=white fillcolor=lightgray fontname=arial style=filled]
+	11 -> "11_LPAREN" [label=LPAREN]
+	"11_IDENTIFIER" [label=myString color=lightblue fillcolor=lightgray fontname=arial style=filled]
+	11 -> "11_IDENTIFIER" [label=IDENTIFIER]
+	"11_RPAREN" [label=")" color=white fillcolor=lightgray fontname=arial style=filled]
+	11 -> "11_RPAREN" [label=RPAREN]
+}

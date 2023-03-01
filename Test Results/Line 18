@@ -1,0 +1,20 @@
+// Cluster 18
+digraph {
+	graph [rankdir=LR]
+	node [fontname=arial shape=plaintext]
+	17 [label="V2 = stack.pop()"]
+	"17_IDENTIFIER" [label=V2 color=lightblue fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_IDENTIFIER" [label=IDENTIFIER]
+	"17_IGNORE" [label=" " color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_IGNORE" [label=IGNORE]
+	"17_EQ" [label="=" color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_EQ" [label=EQ]
+	"17_IGNORE" [label=" " color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_IGNORE" [label=IGNORE]
+	"17_STACKOP" [label="stack.pop" color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_STACKOP" [label=STACKOP]
+	"17_LPAREN" [label="(" color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_LPAREN" [label=LPAREN]
+	"17_RPAREN" [label=")" color=white fillcolor=lightgray fontname=arial style=filled]
+	17 -> "17_RPAREN" [label=RPAREN]
+}

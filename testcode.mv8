@@ -1,0 +1,25 @@
+var myByte : byte = 5
+var myWord : word = 100
+var myString : string = 'Hello world!'
+
+function addNumbers(num1 : byte, num2 : byte) : byte {
+  var result : byte = num1 + num2
+  return result
+}
+
+while(myByte < 10) {
+  myByte = addNumbers(myByte, 1)
+}
+
+if(myByte == 10) {
+  print(myString)
+} else {
+  print('Error: myByte is not equal to 10')
+}
+
+V1 = 50
+stack.push(V1)
+V2 = stack.pop()
+
+print(V1)
+print(V2)

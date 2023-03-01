@@ -1,0 +1,14 @@
+// Cluster 20
+digraph {
+	graph [rankdir=LR]
+	node [fontname=arial shape=plaintext]
+	19 [label="print(V2)"]
+	"19_PRINT" [label=print color=white fillcolor=lightgray fontname=arial style=filled]
+	19 -> "19_PRINT" [label=PRINT]
+	"19_LPAREN" [label="(" color=white fillcolor=lightgray fontname=arial style=filled]
+	19 -> "19_LPAREN" [label=LPAREN]
+	"19_IDENTIFIER" [label=V2 color=lightblue fillcolor=lightgray fontname=arial style=filled]
+	19 -> "19_IDENTIFIER" [label=IDENTIFIER]
+	"19_RPAREN" [label=")" color=white fillcolor=lightgray fontname=arial style=filled]
+	19 -> "19_RPAREN" [label=RPAREN]
+}

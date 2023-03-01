@@ -1,0 +1,8 @@
+// Cluster 7
+digraph {
+	graph [rankdir=LR]
+	node [fontname=arial shape=plaintext]
+	6 [label="}"]
+	"6_RBRACE" [label="}" color=white fillcolor=lightgray fontname=arial style=filled]
+	6 -> "6_RBRACE" [label=RBRACE]
+}

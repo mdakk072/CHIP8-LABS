@@ -1,0 +1,12 @@
+// Cluster 6
+digraph {
+	graph [rankdir=LR]
+	node [fontname=arial shape=plaintext]
+	5 [label="return result"]
+	"5_RETURN" [label=return color=white fillcolor=lightgray fontname=arial style=filled]
+	5 -> "5_RETURN" [label=RETURN]
+	"5_IGNORE" [label=" " color=white fillcolor=lightgray fontname=arial style=filled]
+	5 -> "5_IGNORE" [label=IGNORE]
+	"5_IDENTIFIER" [label=result color=lightblue fillcolor=lightgray fontname=arial style=filled]
+	5 -> "5_IDENTIFIER" [label=IDENTIFIER]
+}
